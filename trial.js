@@ -80,7 +80,17 @@ Constraints:
 1 <= nums.length <= 1000
 -10^6 <= nums[i] <= 10^6*/
 
-let nums=[1,1,1,1,1] //expected outpu=5
-const arraySum=function(arr){
-    
+let nums=[1,1,1,1,1] //expected output=5
+const runningSum=function(arr){
+while(arr.length>1 && arr.length<=1000){
+    const runningSum=[]
+    let sum=0;
+    for(let i=0;i<arr.length;i++){
+sum=sum+arr[i]
+runningSum.push(sum)
+    }
+    return runningSum;
+
 }
+}
+console.log(runningSum(nums));
