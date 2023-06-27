@@ -4,7 +4,7 @@
 //Recursion is a process that calls itself (function)
 //Recursion is everywhere
 //Example of recurssive function is JSON.parse/JSOn.stringify
-//document.getElememtNyId and DOM traversal algorithm
+//document.getElememtById and DOM traversal algorithm
 //Anytime a function is invoked, it is placed (pushed) on the top of the call stack
 // Real life example, when a paper is added on top of a stack of papers it always goes on the top and when you remove you remove it from the top first
 
@@ -28,7 +28,7 @@ function wakeUp(){
 }
 
 wakeUp();
-//In the abaove example when you run it, it calls takeShowerfunction which returns showeing, the function then calls eatBreakfast function which then inded callsfunction cookFood which returns a random meal
+//In the abaove example when you run it, it calls takeShowerfunction which returns showering, the function then calls eatBreakfast function which then inded callsfunction cookFood which returns a random meal
 //When functions are invoked, they are always added at the top of the stack
 
 //Writing Recursive Code (Recursive function)
