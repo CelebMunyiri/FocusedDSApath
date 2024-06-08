@@ -259,5 +259,31 @@ function climbStairsWithSet(n, X) {
 
 // Example usage:
 const X = [1, 3, 5];
-console.log(climbStairsWithSet(4, X)); // Output: 3
+console.log(climbStairsWithSet(4, X)); // Output: 3  
+
+//QUIZ 15[HARD]
+/*
+Given a stream of elements too large to store in memory, pick a random element from the stream with uniform probability.
+
+*/
+//SOLUTION 
+function reservoirSampling(stream) {
+    let selectedElement = null;
+    let count = 0;
+
+    for (const element of stream) {
+        count++;
+        // Randomly replace the current selected element with the new one
+        if (Math.random() < 1 / count) {
+            selectedElement = element;
+        }
+    }
+
+    return selectedElement;
+}
+
+// Example usage:
+const stream = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+console.log(reservoirSampling(stream)); // Random element from the stream
+
 
