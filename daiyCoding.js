@@ -286,4 +286,68 @@ function reservoirSampling(stream) {
 const stream = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 console.log(reservoirSampling(stream)); // Random element from the stream
 
+//LEETCODE THREE SUM ARRAY
+
+function threeSum(arr){
+    let sum=0;
+    for(let i=0;i<arr.length;i++){
+        
+    }
+} 
+
+//PROBLEM
+/*
+A builder is looking to build a row of N houses that can be of K different colors. He has a goal of minimizing cost while ensuring that no two neighboring houses are of the same color.
+
+Given an N by K matrix where the nth row and kth column represents the cost to build the nth house with kth color, return the minimum cost which achieves this goal. */
+//SOLUTION
+function minCost(costs) {
+    if (costs.length === 0) return 0;
+    
+    const N = costs.length;
+    const K = costs[0].length;
+
+    // Create a DP array with the same dimensions as costs
+    let dp = Array.from({ length: N }, () => Array(K).fill(0));
+
+    // Initialize the first row of dp with the first row of costs
+    for (let j = 0; j < K; j++) {
+        dp[0][j] = costs[0][j];
+    }
+
+    // Fill the DP table
+    for (let i = 1; i < N; i++) {
+        for (let j = 0; j < K; j++) {
+            dp[i][j] = costs[i][j] + Math.min(...dp[i-1].filter((_, idx) => idx !== j));
+        }
+    }
+
+    // The answer is the minimum value in the last row of dp
+    return Math.min(...dp[N-1]);
+}
+
+// Example usage:
+const costs = [
+    [1, 5, 3],
+    [2, 9, 4],
+    [3, 6, 1]
+];
+
+console.log(minCost(costs)); // Output: 5
+///EXPLANATION
+/*
+Initialization:
+
+We initialize the first row of the dp array with the first row of the costs array because the cost of painting the first house with any color is just the given cost.
+DP Table Population:
+
+For each house from the second to the last, and for each color, we calculate the minimum cost of painting the house with that color. This is done by taking the current cost and adding it to the minimum cost of painting the previous house with a different color.
+Result:
+
+The final result is the minimum value in the last row of the dp array, representing the minimum cost to paint all houses under the given constraints.
+
+*/
+
+
+
 
