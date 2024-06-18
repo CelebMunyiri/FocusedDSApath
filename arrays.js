@@ -62,6 +62,13 @@ names.shift()//[ 'Michael', 'Melissa', 'Andrea' ]
 //console.log(names.slice(0,1))// new array [ 'Michael' ]
 names.splice(0,1,'Kimsha')//[ 'Kimsha', 'Michael', 'Melissa', 'Andrea' ]
 
+//TWO DIMENSIONAL ARRAYS
+const matrix = [[1,2,3],[4,5,6],[7,8,9]]
+
+for(let row of matrix){
+    const rowString = row.join(" ")
+    console.log(rowString)
+}
 
 
 
