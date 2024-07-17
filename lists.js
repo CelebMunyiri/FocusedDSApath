@@ -61,4 +61,7 @@ list.push('HELLO')
 list.push('GOODBYE');
 //push in lists is inserting at the end
 
-//Solution to push
+//Solution to push 
+
+
+//
