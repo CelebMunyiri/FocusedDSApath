@@ -40,7 +40,7 @@ while(fast.next!=null){
 function printList(head) {
     let current = head;
     while (current !== null) {
-      process.stdout.write(current.val.toString() + (current.next ? " -> " : ""));
+      console.log(current.val + (current.next ? " -> " : ""));
       current = current.next;
     }
     console.log();
@@ -54,3 +54,31 @@ function printList(head) {
   let newHead = removeNthFromEnd(head, 2);
   printList(newHead);  // Output: 1 -> 2 -> 3 -> 5
 
+//DELETE A Node from middle of a list
+
+function deleteMiddle(head) {
+    // Edge case: if there's only one node, return null
+    if (head === null || head.next === null) {
+      return null;
+    }
+  
+    // Initialize two pointers: slow and fast
+    let slow = head;
+    let fast = head;
+    let prev = null;
+  
+    // Move fast pointer by 2 steps and slow pointer by 1 step
+    while (fast !== null && fast.next !== null) {
+      fast = fast.next.next;
+      prev = slow;
+      slow = slow.next;
+    }
+  
+    // Delete the middle node
+    if (prev !== null) {
+      prev.next = slow.next;
+    }
+  
+    return head;
+  }
+  
