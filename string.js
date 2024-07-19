@@ -22,3 +22,13 @@ let word1='abc'
 let word2='pqr'
 
 console.log(mergeStrings(word1, word2)) // Outputs: abcpqr
+
+//Reversing a string
+
+function reverseString(str) {
+  let reversed = "";
+  for(let i=str.length-1; i>=0; i--) {
+    reversed += str[i];
+  }
+  return reversed;
+}
