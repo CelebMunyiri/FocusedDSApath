@@ -32,3 +32,23 @@ function reverseString(str) {
   }
   return reversed;
 }
+
+function listenForNewReminders() {
+  Reminder.watch().on('change', async change => {
+    if (change.operationType === 'insert') {
+      const newReminder = change.fullDocument;
+      const today = new Date();
+      const reminderDate = new Date(newReminder.date);
+      if (reminderDate.setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)) {
+        if (!isCronTimePassed(newReminder.cron_time)) {
+          await scheduleReminder(newReminder);
+          console.log('New reminder scheduled:', newReminder);
+        } else {
+          console.log(" [x] New reminder time has already passed: %s", newReminder.message);
+        }
+      }
+    }
+  });
+}
+
+listenForNewReminders();
