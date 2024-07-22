@@ -26,29 +26,33 @@ console.log(mergeStrings(word1, word2)) // Outputs: abcpqr
 //Reversing a string
 
 function reverseString(str) {
-  let reversed = "";
-  for(let i=str.length-1; i>=0; i--) {
-    reversed += str[i];
-  }
-  return reversed;
+  // str=str.split(" ");
+  // let reversed = "";
+  // for(let i=str.length-1; i>=0; i--) {
+  //   reversed += str[i];
+  // }
+  // return reversed;
+  const words = str.trim().split(/\s+/);
+console.log(words);
+  // Step 2: Reverse the array of words
+  words.reverse();
+
+  // Step 3: Join the words with a single space
+  return words.join(' ');
 }
 
-function listenForNewReminders() {
-  Reminder.watch().on('change', async change => {
-    if (change.operationType === 'insert') {
-      const newReminder = change.fullDocument;
-      const today = new Date();
-      const reminderDate = new Date(newReminder.date);
-      if (reminderDate.setHours(0, 0, 0, 0) === today.setHours(0, 0, 0, 0)) {
-        if (!isCronTimePassed(newReminder.cron_time)) {
-          await scheduleReminder(newReminder);
-          console.log('New reminder scheduled:', newReminder);
-        } else {
-          console.log(" [x] New reminder time has already passed: %s", newReminder.message);
-        }
-      }
-    }
-  });
-}
+let word ="the sky is blue"
 
-listenForNewReminders();
+console.log(reverseString(word));
+
+// Example 1
+const s1 = "the sky is blue";
+console.log(reverseString(s1));  // Output: "blue is sky the"
+
+// Example 2
+const s2 = "  hello world  ";
+console.log(reverseString(s2));  // Output: "world hello"
+
+// Example 3
+const s3 = "a good   example";
+console.log(reverseString(s3));  // Output: "example good a"
